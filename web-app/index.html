@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src = "https://cdn.jsdelivr.net/npm/vue"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <inicial></inicial>
+    </div>
+    
+    <script>
+
+        import inicial from '/src'
+
+        let app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello World!'
+            },
+
+            created:function(){
+                console.log('A instância foi criada');
+            },
+
+
+        });
+
+    </script>    
+</body>
+</html>
