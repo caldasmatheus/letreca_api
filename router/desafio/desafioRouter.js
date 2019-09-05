@@ -23,7 +23,7 @@ router.route("/desafios")
     .post((req, res) => {
         let contextoEsse = req.body.contexto;
         let nomeEsse = req.body.nome;
-        let audioEssa = req.body.audio;
+        let audioEssa = saveAudioChallenge(req.body.audio, req);
         let imagemEssa = saveImageChallenge(req.body.imagem, req);
 
         //INSERT INTO desafio(...) VALUES (cate)
@@ -123,5 +123,17 @@ router.route("/desafios/:contexto/contexto")
         return req.protocol + "://" + req.get("host") + '/' + BASE_URL_CONTEXT + imageName
     }
 
+    // CONVERTER O AUDIO PRA BASE64 E MANDAR PRO SERVIDOR
+    function saveAudioChallenge(codeBase64, req){
+        if(!codeBase64) return null;
+        let buffer = new Buffer(codeBase64, 'base64')
+        let audioExtension = fileType(buffer).ext
+        let audioName = uniqid()
+        audioName = audioName + '.' + audioExtension
+        fs.writeFileSync(BASE_URL_CONTEXT_AUDIO + audioName, buffer)
+        return req.protocol + "://" + req.get("host") + '/' + BASE_URL_CONTEXT_AUDIO + audioName
+    }
+
 const BASE_URL_CONTEXT = 'public/images/'
+const BASE_URL_CONTEXT_AUDIO = 'public/sounds/'
 module.exports = router;
