@@ -134,6 +134,6 @@ router.route("/desafios/:contexto/contexto")
         return req.protocol + "://" + req.get("host") + '/' + BASE_URL_CONTEXT_AUDIO + audioName
     }
 
-const BASE_URL_CONTEXT = 'public/images/'
-const BASE_URL_CONTEXT_AUDIO = 'public/sounds/'
+const BASE_URL_CONTEXT = 'letreca/V1/public/images/'
+const BASE_URL_CONTEXT_AUDIO = 'letreca/V1/public/sounds/'
 module.exports = router;
