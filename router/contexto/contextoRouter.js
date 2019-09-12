@@ -100,8 +100,8 @@ router.route("/contextos/:id")
         imageName = imageName + '.' + imageExtension
         fs.writeFileSync(BASE_URL_CONTEXT + imageName, buffer)
     
-        return  req.protocol + "://" + req.get("host") + '/' + BASE_URL_CONTEXT + imageName
+        return  req.protocol + "://" + req.get("host") + '/letreca/v1/' + BASE_URL_CONTEXT + imageName
     }
 
-const BASE_URL_CONTEXT = 'letreca/V1/public/images/';
+const BASE_URL_CONTEXT = 'public/images/';
 module.exports = router;

@@ -131,9 +131,9 @@ router.route("/desafios/:contexto/contexto")
         let audioName = uniqid()
         audioName = audioName + '.' + audioExtension
         fs.writeFileSync(BASE_URL_CONTEXT_AUDIO + audioName, buffer)
-        return req.protocol + "://" + req.get("host") + '/' + BASE_URL_CONTEXT_AUDIO + audioName
+        return req.protocol + "://" + req.get("host") + '/letreca/v1/' + BASE_URL_CONTEXT_AUDIO + audioName
     }
 
-const BASE_URL_CONTEXT = 'letreca/V1/public/images/'
-const BASE_URL_CONTEXT_AUDIO = 'letreca/V1/public/sounds/'
+const BASE_URL_CONTEXT = 'public/images/'
+const BASE_URL_CONTEXT_AUDIO = 'public/sounds/'
 module.exports = router;
