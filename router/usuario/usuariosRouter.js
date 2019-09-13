@@ -23,6 +23,7 @@ router.route("/usuarios")
         let nomeEsse = req.body.nome;
         let emailEsse = req.body.email;
         let senhaEssa = req.body.senha;
+        let especialEsse = req.body.especial;
 
         //INSERT INTO usuarios(categoria, nome, descricao) VALUES (cate)
         Usuarios.findOne(
@@ -35,7 +36,8 @@ router.route("/usuarios")
                     Usuarios.create({
                         nome: nomeEsse,
                         email: emailEsse,
-                        senha: senhaCripto
+                        senha: senhaCripto,
+                        especial: especialEsse
                     }).then((usuarios) => {
                         res.json({ mensagem: "USUARIO ADICIONADO" })
                     })
@@ -50,7 +52,8 @@ router.route("/usuarios/:id")
     .put(function (req, res) {
         let id = req.params.id;
         let nome = req.body.nome;
-        let novoUsuario = { nome: nome };
+        let especial = req.body.especial;
+        let novoUsuario = { nome: nome, especial: especial};
 
         //SELECT * FROM PRODUTO WHERE ID = REQ.PARAMS.ID LIMIT 1;
         Usuarios.findOne({
