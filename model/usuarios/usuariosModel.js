@@ -6,6 +6,7 @@ const Usuarios = sequelize.define('usuarios', {
     nome: Sequelize.STRING,
     email: Sequelize.STRING,
     senha: Sequelize.STRING,
+    especial: Sequelize.STRING,
 })
 
 Usuarios.sync();
