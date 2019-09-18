@@ -120,7 +120,8 @@ router.route("/desafios/:contexto/contexto")
         let imageName = uniqid()
         imageName = imageName + '.' + imageExtension
         fs.writeFileSync(BASE_URL_CONTEXT + imageName, buffer)
-        return req.protocol + "://" + req.get("host") + '/' + BASE_URL_CONTEXT + imageName
+        console.log('Salvando imagem base64');
+        return req.protocol + "://" + req.get("host") + '/letreca/v1/' + BASE_URL_CONTEXT + imageName
     }
 
     // CONVERTER O AUDIO PRA BASE64 E MANDAR PRO SERVIDOR
@@ -131,7 +132,7 @@ router.route("/desafios/:contexto/contexto")
         let audioName = uniqid()
         audioName = audioName + '.' + audioExtension
         fs.writeFileSync(BASE_URL_CONTEXT_AUDIO + audioName, buffer)
-        return req.protocol + "://" + req.get("host") + '/' + BASE_URL_CONTEXT_AUDIO + audioName
+        return req.protocol + "://" + req.get("host") + '/letreca/v1/' + BASE_URL_CONTEXT_AUDIO + audioName
     }
 
 const BASE_URL_CONTEXT = 'public/images/'
